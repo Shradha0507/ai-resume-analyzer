@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Analyzer - Register</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="register">
+    <main class="auth-layout">
+      <section class="panel card">
+        <h1>Create your account</h1>
+        <p class="subtitle">Sign up to analyze resumes with Gemini AI.</p>
+
+        <form id="registerForm" class="form-stack">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="Alex Johnson" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="alex@example.com" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="At least 6 characters" required />
+
+          <button type="submit" class="btn">Register</button>
+        </form>
+
+        <p id="registerMessage" class="message"></p>
+
+        <p class="link-row">
+          Already have an account?
+          <a href="login.html">Login</a>
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

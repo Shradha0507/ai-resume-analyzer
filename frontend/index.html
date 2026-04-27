@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Analyzer - Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="dashboard">
+    <header class="topbar">
+      <div>
+        <h1>AI Resume Analyzer</h1>
+        <p id="welcomeText" class="subtitle"></p>
+      </div>
+      <button id="logoutBtn" class="btn danger">Logout</button>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="card">
+        <h2>Analyze Resume</h2>
+        <p class="subtitle">Paste resume text and the target job description.</p>
+
+        <form id="analyzeForm" class="form-stack">
+
+        <!-- ✅ NEW FILE INPUT -->
+        <label for="resumeFile">Upload Resume (PDF or DOCX)</label>
+  <input 
+    type="file" 
+    id="resumeFile" 
+    accept=".pdf,.docx" 
+    required 
+  />
+
+  <!-- ✅ KEEP JOB DESCRIPTION -->
+  <label for="jobDescription">Job Description</label>
+  <textarea 
+    id="jobDescription" 
+    rows="10" 
+    placeholder="Paste job description here..." 
+    required>
+  </textarea>
+
+  <button id="analyzeButton" type="submit" class="btn">
+    Analyze with Gemini
+  </button>
+
+</form>
+
+        <p id="analyzeMessage" class="message"></p>
+      </section>
+
+      <section id="resultCard" class="card hidden">
+        <h2>Analysis Result</h2>
+        <div class="score-row">
+          <span>Match Score</span>
+          <strong id="scoreValue" class="score-badge">0</strong>
+        </div>
+
+        <h3>Matched Skills</h3>
+        <ul id="matchedSkills" class="chip-list"></ul>
+
+        <h3>Missing Skills</h3>
+        <ul id="missingSkills" class="chip-list warning"></ul>
+
+        <h3>Suggestions</h3>
+        <p id="suggestions" class="suggestions"></p>
+      </section>
+
+      <section class="card full-width">
+        <h2>Recent History</h2>
+        <p class="subtitle">Your latest analyses are saved automatically.</p>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

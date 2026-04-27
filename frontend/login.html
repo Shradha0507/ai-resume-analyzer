@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Analyzer - Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="login">
+    <main class="auth-layout">
+      <section class="panel card">
+        <h1>Welcome back</h1>
+        <p class="subtitle">Login to continue your resume analysis.</p>
+
+        <form id="loginForm" class="form-stack">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="alex@example.com" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Your password" required />
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+
+        <p id="loginMessage" class="message"></p>
+
+        <p class="link-row">
+          New here?
+          <a href="register.html">Create account</a>
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
