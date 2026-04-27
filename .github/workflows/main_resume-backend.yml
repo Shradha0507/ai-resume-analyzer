@@ -27,6 +27,12 @@ jobs:
         run: |
           cd backend
           npm install
+      - name: Build app (optional)
+        run: echo "No build step"
+
+      - name: Prepare for deployment
+        run: |
+          cd backend
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
