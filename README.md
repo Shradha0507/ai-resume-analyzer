@@ -15,35 +15,35 @@ A complete full-stack web application that analyzes resume fit for a job descrip
 ```text
 root/
 +-- frontend/
-¦   +-- index.html
-¦   +-- login.html
-¦   +-- register.html
-¦   +-- style.css
-¦   +-- script.js
-¦
+ï¿½   +-- index.html
+ï¿½   +-- login.html
+ï¿½   +-- register.html
+ï¿½   +-- style.css
+ï¿½   +-- script.js
+ï¿½
 +-- backend/
-¦   +-- server.js
-¦   +-- package.json
-¦   +-- routes/
-¦   ¦   +-- authRoutes.js
-¦   ¦   +-- analyzeRoutes.js
-¦   +-- controllers/
-¦   ¦   +-- authController.js
-¦   ¦   +-- analyzeController.js
-¦   +-- services/
-¦   ¦   +-- aiService.js
-¦   ¦   +-- cosmosService.js
-¦   +-- middleware/
-¦   ¦   +-- authMiddleware.js
-¦   ¦   +-- logger.js
-¦   +-- utils/
-¦   ¦   +-- fileParser.js
-¦   +-- .env.example
-¦
+ï¿½   +-- server.js
+ï¿½   +-- package.json
+ï¿½   +-- routes/
+ï¿½   ï¿½   +-- authRoutes.js
+ï¿½   ï¿½   +-- analyzeRoutes.js
+ï¿½   +-- controllers/
+ï¿½   ï¿½   +-- authController.js
+ï¿½   ï¿½   +-- analyzeController.js
+ï¿½   +-- services/
+ï¿½   ï¿½   +-- aiService.js
+ï¿½   ï¿½   +-- cosmosService.js
+ï¿½   +-- middleware/
+ï¿½   ï¿½   +-- authMiddleware.js
+ï¿½   ï¿½   +-- logger.js
+ï¿½   +-- utils/
+ï¿½   ï¿½   +-- fileParser.js
+ï¿½   +-- .env.example
+ï¿½
 +-- .github/
-¦   +-- workflows/
-¦       +-- codeql.yml
-¦
+ï¿½   +-- workflows/
+ï¿½       +-- codeql.yml
+ï¿½
 +-- .gitignore
 +-- README.md
 ```
@@ -214,3 +214,4 @@ curl -X GET http://localhost:5000/api/history \
 ## Important Implementation Note
 
 All resume-vs-job analysis logic (skill extraction, matching, missing skills, score, suggestions) is handled by **Gemini AI** in `backend/services/aiService.js`. No rule-based NLP scoring is used.
+trigger redeploy
