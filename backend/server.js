@@ -33,15 +33,9 @@ app.get("/api/health", (req, res) => {
 app.use("/api", authRoutes);
 app.use("/api", analyzeRoutes);
 
-// Serve frontend
-const frontendPath = path.join(__dirname, "..", "frontend");
-app.use(express.static(frontendPath));
-
-app.get("*", (req, res, next) => {
-  if (req.path.startsWith("/api")) {
-    return next();
-  }
-  return res.sendFile(path.join(frontendPath, "index.html"));
+// ✅ Root route (replace frontend serving)
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
 });
 
 // Global error handler
