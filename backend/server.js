@@ -14,7 +14,25 @@ const { initializeCosmos } = require("./services/cosmosService");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+
+    const allowedOrigins = [
+      "http://localhost:5000",
+      "http://localhost:5500",
+      "https://agreeable-bush-036948700.7.azurestaticapps.net"
+    ];
+
+    if (allowedOrigins.includes(origin) || origin.includes(".azurestaticapps.net")) {
+      return callback(null, true);
+    } else {
+      return callback(null, false);
+    }
+  },
+  credentials: true
+}));
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);

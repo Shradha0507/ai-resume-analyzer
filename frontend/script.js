@@ -1,9 +1,8 @@
 const DEFAULT_API_BASE_URL =
-  !window.location.hostname ||
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:5000/api"
-    : "/api";
+    : "https://resume-backend-augaehd4bac3gvfh.southeastasia-01.azurewebsites.net/api";
 
 const API_BASE_URL = localStorage.getItem("apiBaseUrl") || DEFAULT_API_BASE_URL;
 
