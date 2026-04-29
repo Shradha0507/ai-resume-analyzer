@@ -8,6 +8,30 @@ const authRoutes = require("./routes/authRoutes");
 const analyzeRoutes = require("./routes/analyzeRoutes");
 const logger = require("./middleware/logger");
 
+const appInsights = require("applicationinsights");
+
+if (process.env.APPINSIGHTS_CONNECTION_STRING) {
+  appInsights
+    .setup(process.env.APPINSIGHTS_CONNECTION_STRING)
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectConsole(true)
+    .start();
+
+  console.log("Application Insights initialized");
+}
+
+const appInsights = require("applicationinsights");
+
+app.post("/api/login", (req, res) => {
+  appInsights.defaultClient.trackEvent({
+    name: "UserLogin",
+    properties: { email: req.body.email }
+  });
+});
+
 // ✅ NEW IMPORT (Cosmos NoSQL)
 const { initializeCosmos } = require("./services/cosmosService");
 
@@ -28,7 +52,7 @@ app.use(cors({
     if (allowedOrigins.includes(origin) || origin.includes(".azurestaticapps.net")) {
       return callback(null, true);
     } else {
-      return callback(null, false);
+      return callback(new Error("CORS blocked"));
     }
   },
   credentials: true
@@ -36,11 +60,6 @@ app.use(cors({
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
-
-// Optional Application Insights log
-if (process.env.APPINSIGHTS_CONNECTION_STRING) {
-  console.log("[startup] APPINSIGHTS_CONNECTION_STRING found.");
-}
 
 // Health check
 app.get("/api/health", (req, res) => {

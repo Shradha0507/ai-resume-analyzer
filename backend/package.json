@@ -20,6 +20,7 @@
     "@azure/cosmos": "^4.9.3",
     "@google/genai": "^1.50.1",
     "@google/generative-ai": "^0.24.1",
+    "applicationinsights": "^3.14.0",
     "axios": "^1.15.2",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
