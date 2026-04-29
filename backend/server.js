@@ -23,14 +23,6 @@ if (process.env.APPINSIGHTS_CONNECTION_STRING) {
   console.log("Application Insights initialized");
 }
 
-const appInsights = require("applicationinsights");
-
-app.post("/api/login", (req, res) => {
-  appInsights.defaultClient.trackEvent({
-    name: "UserLogin",
-    properties: { email: req.body.email }
-  });
-});
 
 // ✅ NEW IMPORT (Cosmos NoSQL)
 const { initializeCosmos } = require("./services/cosmosService");
